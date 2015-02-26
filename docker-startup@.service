@@ -1,0 +1,12 @@
+[Unit]
+Description=Docker container startup
+Author=Me
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker start -a %i
+ExecStop=/usr/bin/docker stop -t 2 %i
+
+[Install]
+WantedBy=local.target
